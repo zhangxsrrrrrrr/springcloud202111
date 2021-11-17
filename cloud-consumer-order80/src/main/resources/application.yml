@@ -1,0 +1,17 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    # 是否从EurekaServer抓取已有的注册信息，默认为true，单节点无所谓，集群必须是true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    # 表示是否将自己注册进eurekaServer
+    register-with-eureka: true
+    service-url:
+      #注册到7001Server端和7002Server端
+      defaultZone: http://121.40.237.86:7001/eureka/, http://121.40.237.86:7002/eureka/
+
+
+spring:
+  application:
+    name: cloud-consumer-order

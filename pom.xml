@@ -22,6 +22,10 @@
     <module>cloud-provider-consul-payment8006</module>
     <module>cloud-provider-consul-order80</module>
     <module>cloud-consumer-openfeign-order80</module>
+    <module>cloud-provider-hystrix-payment8001</module>
+    <module>cloud-provider-feign-hystrix-order8001</module>
+    <module>cloud-provider-hystrix-dashboard9001</module>
+    <module>cloud-gateway-gateway9527</module>
   </modules>
 
 

@@ -1,0 +1,19 @@
+server:
+  port: 3366
+eureka:
+  client:
+    service-url:
+      defaultZone: http://121.40.237.86:7001/eureka/, http://121.40.237.86:7002/eureka/
+
+
+
+spring:
+  application:
+    name: config-client
+
+  cloud:
+    config:
+      label: main
+      name: config
+      profile: dev  # 上述三个表示：main分支下的confi-dev.yml文件
+      uri: http://127.0.0.1:3344

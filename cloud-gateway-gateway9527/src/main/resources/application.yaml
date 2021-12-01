@@ -1,22 +1,32 @@
 server:
   port: 9527
-  servlet:
-    context-path: /gateway
 spring:
   application:
     name: cloud-gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true  # 开启以微服务名称作为请求
       routes:
         - id: payment8001a
-          uri: http://127.0.0.1:8001
+#          uri: http://127.0.0.1:8001
+          uri: lb://CLOUD-PAYMENT-SERVICE
           predicates:
             - Path=/payment/get/**
-
+            - After=2021-11-23T23:02:20.741+08:00[Asia/Shanghai]
+#            - Cookie=username, zzxx
+#            - Header=X-Request-Id, \d+
+#            - Host=**.somehost.org,**.anotherhost.org
+#            - Method=GET
+#            - Query=green
+#            - RemoteAddr=127.0.0.1/24
+#            - Weight=group1, 8
         - id: payment8001b
-          uri: http://127.0.0.1:8001
+          uri: lb://CLOUD-PAYMENT-SERVICE
           predicates:
             - Path=/payment/port
+            - Weight=group1, 2
 
 
 

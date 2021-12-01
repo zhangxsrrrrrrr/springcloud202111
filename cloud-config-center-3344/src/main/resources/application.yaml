@@ -1,0 +1,16 @@
+server:
+  port: 3344
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:zhangxsrrrrrrr/springcloud-config.git
+          search-paths:
+            - springcloud-config
+          default-label: main
+eureka:
+  client:
+    service-url:
+      defaultZone: http://121.40.237.86:7001/eureka/, http://121.40.237.86:7002/eureka/
